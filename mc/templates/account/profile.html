@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+	<section id="profile">
+		{# include '_karma.html' #}
+		<section id="form_miembros">
+          <div class="content">
+            <div class="help">
+              <div class="box box-miembros active">
+                <h5>Perfil</h5>
+                <h6>Mantené actualizados tus datos personales</p>
+              </div>
+            </div>
+            <div class="panel">
+              <form action="profile.html">
+                <h3>Mis datos</h3>
+                <p>
+                  <label for="nombre">Nombre de usuario</label>
+                  <input type="text" id="nombre" name="nombre" value="{{ request.user.username }}" />
+                </p>
+                <p>
+                  <label for="email">Correo electrónico</label>
+                  <input type="email" id="email" name="email" value="{{ request.user.email }}" />
+                </p>
+
+                <div class="col-2">
+                  <p>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="first_nombre" name="first_nombre" value="{{ request.user.first_name }}" />
+                  </p>
+                  <p>
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" value="{{ request.user.last_name }}" />
+                  </p>
+                </div>
+                <div class="col-2">
+                  <p>
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" name="direccion"/>
+                  </p>
+                  <p>
+                    <label for="localidad">Localidad</label>
+                    <input type="text" id="localidad" name="localidad"/>
+                  </p>
+                </div>
+                <div class="col-2">
+                  <p>
+                    <label for="dni">DNI</label>
+                    <input type="text" id="dni" name="dni"/>
+                  </p>
+                  <p>
+                    <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"/>
+                  </p>
+                </div>
+                <button>Actualizar</button>
+              </form>
+            </div>
+          </div>
+        </section>
+		
+	</section>
+{% endblock %}

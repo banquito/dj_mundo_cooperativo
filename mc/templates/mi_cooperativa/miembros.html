@@ -1,0 +1,98 @@
+{% extends "mi_cooperativa/base.html" %}
+{% block inter %}
+<section id="form_miembros">
+  <div class="content">
+    <div class="help">
+      <div class="box box-miembros active">
+        <h5>+6</h5>
+        <h6>Para armar una cooperativa, se necestan al menos, 6 socios.</h6><p>Las cooperativas de trabajo necestan 
+un mínimo de 6 miembros. 
+Esto es porque es necesario cubrir 
+los cargos del consejo de administración
+y el de sindico.
+En una cooperativa de 6 miembros, 
+los cargos a distribuir serían:
+Presidente, secretario, tesorero, 
+sindico, sindico suplente y socio.</p>
+<p><a href="http://www.inaes.com.ar">Más información</a> </p>
+
+      </div>
+    </div>
+    <div class="panel">
+      <table>
+        <thead>
+          <tr>
+            <th>Socios</th>
+            <th>Correo</th>
+            <th>Estado</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ariel Federico Asus</td>
+            <td class="mail"><span>daniel@gmail.com</span></td>
+            <td>30%</td>
+            <td><a href="#editar"></a></td>
+          </tr>
+          <tr>
+            <td>Ariel Ramirez</td>
+            <td class="mail"><span>correo_un_pocoopuedesermuchomaslargoque_esto_largo@gmail.com</span></td>
+            <td>60%</td>
+            <td><a href="#editar"></a></td>
+          </tr>
+          <tr>
+            <td>Jorge Ibañez</td>
+            <td class="mail"><span>jorge_ibanez@gmail.com</span></td>
+            <td>100%</td>
+            <td><a href="#editar"></a></td>
+          </tr>
+        </tbody>
+      </table>
+      <form action="{% url 'index' %}">
+        <h3>Nuevo socio</h3>
+        <p>
+          <label for="nombre">Nombre de usuario</label>
+          <input type="text" id="nombre" name="nombre"/>
+        </p>
+        <p>
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email"/>
+        </p>
+
+        <div class="col-2">
+          <p>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre"/>
+          </p>
+          <p>
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido"/>
+          </p>
+        </div>
+        <div class="col-2">
+          <p>
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion"/>
+          </p>
+          <p>
+            <label for="localidad">Localidad</label>
+            <input type="text" id="localidad" name="localidad"/>
+          </p>
+        </div>
+        <div class="col-2">
+          <p>
+            <label for="dni">DNI</label>
+            <input type="text" id="dni" name="dni"/>
+          </p>
+          <p>
+            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"/>
+          </p>
+        </div>
+        <button>Agregar socio</button><a href="{% url 'index' %}" class="volver">volver</a>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

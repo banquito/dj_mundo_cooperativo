@@ -1,0 +1,37 @@
+{% extends "account/base.html" %}
+
+{% load url from future %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<section id="registro">
+  <div class="content">
+    <div class="help">
+      <h2>Registro de usurario</h2>
+      <p>
+        Este es tu primer paso para fundar una 
+        cooperativa de trabajo.
+        Sería bueno contar algo más en esta
+        instancia. desde que va a pasar despues, 
+        hasta algo relacionado a la importancia 
+        de hacerlo de forma grupal.
+      </p>
+      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    </div>
+    <form id="signup_form" method="post" action="{% url 'account_signup' %}" class="panel">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button type="submit">{% trans "Sign Up" %}</button>
+
+    </form>
+  </div>
+</section>
+
+{% endblock %}
+
+

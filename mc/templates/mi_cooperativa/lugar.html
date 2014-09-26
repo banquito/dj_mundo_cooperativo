@@ -1,0 +1,54 @@
+{% extends "mi_cooperativa/base.html" %}
+{% block inter %}
+
+<section id="form_lugar">
+  <div class="content">
+    <div class="help">
+      <div class="box box-lugar active">
+        <h5>Lugar</h5>
+        <h6>Ubicación de la sede</h6><p>Esta es la dirección legal de la cooperativa.
+Es recomendado que las asambleas y reuniones se realicen
+en este lugar y es necesario poder certificar este domicilio.</p>
+<p><a href="http://www.inaes.com.ar">Más información</a> </p>
+
+      </div>
+    </div>
+    <div class="panel">
+      <form action="{% url 'index' %}">
+        <h3>Datos de la sede</h3>
+        <p>
+          <label for="direccion">Dirección</label>
+          <input type="text" id="direccion" name="direccion"/>
+        </p>
+        <div class="col-2">
+          <p>
+            <label for="piso">Piso</label>
+            <input type="text" id="piso" name="piso"/>
+          </p>
+          <p>
+            <label for="departamento">Departamento</label>
+            <input type="text" id="departamento" name="departamento"/>
+          </p>
+        </div>
+        <div class="col-2">
+          <p>
+            <label for="localidad">Localidad</label>
+            <input type="text" id="localidad" name="localidad"/>
+          </p>
+          <p>
+            <label for="provincia">Provincia</label>
+            <input type="text" id="provincia" name="provincia"/>
+          </p>
+        </div>
+        <div class="col-2">
+          <p>
+            <label for="codigo_postal">Código postal</label>
+            <input type="text" id="codigo_postal" name="codigo_postal"/>
+          </p>
+        </div>
+        <button>Guardar</button><a href="{% url 'index' %}" class="volver">volver</a>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

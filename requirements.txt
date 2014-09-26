@@ -1,0 +1,5 @@
+Django==1.7
+PyYAML==3.11
+argparse==1.2.1
+django-suit==0.2.11
+wsgiref==0.1.2

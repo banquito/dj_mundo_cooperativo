@@ -1,0 +1,41 @@
+{% extends "mi_cooperativa/base.html" %}
+{% block inter %}
+<section id="form_capital">
+  <div class="content">
+    <div class="help">
+      <div class="box box-capital active">
+        <h5>Capital social</h5>
+        <h6>Capital suscripto por socio</h6><p>Se debe realizar un depósito del 5% del salario 
+mínimo por cada socio.</p>
+<p>Esto se puede hacer en un banco cooperativo 
+como el credicoop o en cualquier banco oficial. </p>
+<p><a href="http://www.inaes.com.ar">Más información</a> </p>
+<p><a href="http://www.inaes.com.ar">Sucursales</a> </p>
+
+      </div>
+    </div>
+    <div class="panel">
+      <form action="{% url 'index' %}">
+        <h3>Monto a depositár:<strong>$354,35</strong></h3>
+        <p>
+          <label for="fecha_deposito">Fecha de depósito</label>
+          <input type="date" id="fecha_deposito" name="fecha_deposito"/>
+        </p>
+        <p>
+          <label for="boleta">Número de boleta</label>
+          <input type="text" id="boleta" name="boleta"/>
+        </p>
+        <p>
+          <label for="banco">Banco</label>
+          <input type="text" id="banco" name="banco"/>
+        </p>
+        <p>
+          <label for="direccion_banco">Dirección</label>
+          <input type="text" id="direccion_banco" name="direccion_banco"/>
+        </p>
+        <button>Guardar</button><a href="{% url 'index' %}" class="volver">volver</a>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

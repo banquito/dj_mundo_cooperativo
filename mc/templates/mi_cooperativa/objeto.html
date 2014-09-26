@@ -1,0 +1,28 @@
+{% extends "mi_cooperativa/base.html" %}
+{% block inter %}
+
+<section id="form_obhetivo">
+  <div class="content">
+    <div class="help">
+      <div class="box box-objetivo active">
+        <h5>Objetivo</h5>
+        <h6>Objeto social</h6><p>El objeto social describe las áreas en las que
+la cooperativa se va a desarrollar.
+Puedes enumerar varias actividades en las que la 
+cooperativa se va a desarrollar.</p>
+<p><a href="http://www.inaes.com.ar">Más información</a> </p>
+
+      </div>
+    </div>
+    <div class="panel">
+      <form action="{% url 'index' %}">
+        <p>
+          <label for="objeto">Objeto social</label>
+          <textarea id="objeto" name="objeto"></textarea>
+        </p>
+        <button>Guardar</button><a href="{% url 'index' %}" class="volver">volver</a>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
