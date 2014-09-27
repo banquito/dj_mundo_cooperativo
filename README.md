@@ -9,8 +9,8 @@ dj_mundo_cooperativo
     virtualenv ENV
     source ENV/bin/activate
     cd dj_mundo_cooperativo
-    pip install -r requirements.txt
     cd mc
+    pip install -r requirements.txt
     python manage.py migrate
     python manage.py runserver
 
