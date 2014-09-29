@@ -9,8 +9,8 @@ class Organization(models.Model):
     provincia = models.CharField(max_length=200)
     prefijo = models.IntegerField()
     telefonos = models.CharField(max_length=200)
-    fax = models.CharField(max_length=200, null=True)
-    correo_electronico = models.CharField(max_length=200, null=True) 
+    fax = models.CharField(max_length=200, null=True, blank=True)
+    correo_electronico = models.CharField(max_length=200, null=True, blank=True) 
     director = models.CharField(max_length=200)
     director2 = models.CharField(max_length=200, null=True)
 
@@ -20,10 +20,10 @@ class Organization(models.Model):
 class Cooperative(models.Model):
     provincia = models.ForeignKey(Organization)
     nombre = models.CharField(max_length=200)
-    objeto = models.CharField(max_length=200, null=True)
-    direccion = models.CharField(max_length=200, null=True)
-    localidad = models.CharField(max_length=200, null=True)
-    codigo_postal = models.CharField(max_length=200, null=True)
+    objeto = models.CharField(max_length=200, null=True, blank=True)
+    direccion = models.CharField(max_length=200, null=True, blank=True)
+    localidad = models.CharField(max_length=200, null=True, blank=True)
+    codigo_postal = models.CharField(max_length=200, null=True, blank=True)
     pub_date = models.DateTimeField('date published')
 
     def __unicode__(self):

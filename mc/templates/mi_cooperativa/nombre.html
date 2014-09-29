@@ -16,7 +16,7 @@
       <form action="{% url 'index' %}">
         <h3>Nombre comercial</h3>
         <p>"Cooperativa de trabajo"
-          <input type="text" id="nombre" name="nombre">"limitada".
+          <input type="text" id="nombre" name="nombre" value="{{ cooperative.nombre }}">"limitada".
         </p>
         <p>
           <label for="descripcion">Descripción corta</label>

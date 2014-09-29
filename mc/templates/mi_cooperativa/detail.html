@@ -1,0 +1,42 @@
+{% extends "mi_cooperativa/base.html" %}
+
+{% block inter %}
+
+<div class="content">
+  <div class="boxes">
+    <div class="box box-nombre active"><a href="{% url 'nombre' cooperative_id=cooperative.id %}">
+        <h5>Nombre</h5>
+        <p>Nombre de uso comercial.</p></a></div>
+    <div class="box box-miembros"><a href="{% url 'miembros' cooperative_id=cooperative.id %}">
+        <h5>+6</h5>
+        <p>Para armar una cooperativa, se necestan al menos, 6 socios.</p></a></div>
+    <div class="box box-objetivo"><a href="{% url 'objeto' cooperative_id=cooperative.id %}">
+        <h5>Objetivo</h5>
+        <p>Estar de acuerdo en que tarea van a realizar.</p></a></div>
+    <div class="box box-lugar"><a href="{% url 'lugar' cooperative_id=cooperative.id %}">
+        <h5>Lugar</h5>
+        <p>Tener una sede donde funcionar.</p></a></div>
+
+    <div class="box box-formacion"><a href="{% url 'formacion' cooperative_id=cooperative.id %}">
+        <h5>Formación</h5>
+        <p>Curso de cooperativismo.</p></a></div>
+  </div>
+  <div class="boxes-inaes">
+    <div class="box box-convocatoria"><a href="{% url 'convocatoria' cooperative_id=cooperative.id %}">
+        <h5>Convocatoria  a Asamblea</h5>
+        <p>Genera la documantación necesaria para presentar ante el Inaes</p></a></div>
+    <div class="box box-asamblea"><a href="{% url 'asamblea' cooperative_id=cooperative.id %}">
+        <h5>Asamblea constitutiva</h5>
+        <p>Se crea el estatuto de la cooperativa</p></a></div>
+    <div class="box box-acta-consejo"><a href="{% url 'acta_consejo' cooperative_id=cooperative.id %}">
+        <h5>Primer acta del consejo</h5>
+        <p>Se repartin los cargos del consejo de administración</p></a></div>
+    <div class="box box-capital"><a href="{% url 'capital' cooperative_id=cooperative.id %}">
+        <h5>Capital social</h5>
+        <p>Capital suscripto por socio.</p></a></div>
+    <div class="box box-tramite"><a href="{% url 'tramite' cooperative_id=cooperative.id %}">
+        <h5>Estado del tramite ante el Inaes</h5>
+        <p>Información sobre la situación legal de la cooperativa</p></a></div>
+  </div>
+</div>
+{% endblock %}
