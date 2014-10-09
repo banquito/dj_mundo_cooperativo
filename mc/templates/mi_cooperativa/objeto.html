@@ -15,12 +15,13 @@ cooperativa se va a desarrollar.</p>
       </div>
     </div>
     <div class="panel">
-      <form action="{% url 'index' %}">
+      <form action="{% url 'objeto' cooperative_id=cooperative.id %}" method="post">
+      {% csrf_token %}
         <p>
           <label for="objeto">Objeto social</label>
-          <textarea id="objeto" name="objeto"></textarea>
+          <textarea id="objeto" name="objeto">{{ cooperative.objeto }}</textarea>
         </p>
-        <button>Guardar</button><a href="{% url 'index' %}" class="volver">volver</a>
+        <button>Guardar</button><a href="{% url 'detail' cooperative_id=cooperative.id %}" class="volver">volver</a>
       </form>
     </div>
   </div>

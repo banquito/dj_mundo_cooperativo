@@ -1,3 +1,4 @@
+{% load tags %}
 <div class="content">
   <div class="help">
     <h2>Mi cooperativa</h2><p>Para completar la documentación 
@@ -11,16 +12,9 @@ Para lograr tener la matriculo de tu cooperativa, será necesario
 que completes todos los pasos para una inscripción exitosa.</p>
 
     <div class="gotas">
-      <div class="gota active"></div>
-      <div class="gota active"></div>
-      <div class="gota active"></div>
-      <div class="gota"></div>
-      <div class="gota"></div>
-      <div class="gota"></div>
-      <div class="gota"></div>
-      <div class="gota"></div>
-      <div class="gota"></div>
-      <div class="gota"></div>
+      {% for i in 10|get_range %}
+          <div class="gota {% karma cooperative i %}"></div>
+      {% endfor %}      
     </div>
   </div>
 </div>

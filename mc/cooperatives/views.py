@@ -1,6 +1,9 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.urlresolvers import reverse
+
 from .models import Cooperative
+from .forms import CooperativeNombreForm, CooperativeObjetoForm, CooperativeLugarForm
 
 def index(request):
     cooperatives = Cooperative.objects.all()
@@ -12,6 +15,12 @@ def detail(request, cooperative_id):
 
 def nombre(request, cooperative_id):
     cooperative = get_object_or_404(Cooperative, pk=cooperative_id)
+
+    if request.POST:
+        f = CooperativeNombreForm(request.POST, instance=cooperative)
+        f.save()
+        return HttpResponseRedirect(reverse('detail', args=(cooperative_id,)))
+
     return render(request, 'mi_cooperativa/nombre.html', {'cooperative':cooperative})
 
 def miembros(request, cooperative_id):
@@ -20,11 +29,24 @@ def miembros(request, cooperative_id):
 
 def objeto(request, cooperative_id):
     cooperative = get_object_or_404(Cooperative, pk=cooperative_id)
+
+    if request.POST:
+        f = CooperativeObjetoForm(request.POST, instance=cooperative)
+        f.save()
+        return HttpResponseRedirect(reverse('detail', args=(cooperative_id,)))
+
     return render(request, 'mi_cooperativa/objeto.html', {'cooperative':cooperative})
 
 def lugar(request, cooperative_id):
     cooperative = get_object_or_404(Cooperative, pk=cooperative_id)
-    return render(request, 'mi_cooperativa/lugar.html', {'cooperative':cooperative})
+
+    if request.POST:
+        f = CooperativeLugarForm(request.POST, instance=cooperative)
+        f.save()
+        return HttpResponseRedirect(reverse('detail', args=(cooperative_id,)))
+
+    form = CooperativeLugarForm(instance=cooperative)
+    return render(request, 'mi_cooperativa/lugar.html', {'cooperative':cooperative, 'form':form })
 
 def formacion(request, cooperative_id):
     cooperative = get_object_or_404(Cooperative, pk=cooperative_id)

@@ -14,39 +14,31 @@ en este lugar y es necesario poder certificar este domicilio.</p>
       </div>
     </div>
     <div class="panel">
-      <form action="{% url 'index' %}">
+      <form action="{% url 'lugar' cooperative_id=cooperative.id %}" method="post">
+        {% csrf_token %}
         <h3>Datos de la sede</h3>
         <p>
           <label for="direccion">Dirección</label>
-          <input type="text" id="direccion" name="direccion"/>
+          {{ form.direccion }}
         </p>
-        <div class="col-2">
-          <p>
-            <label for="piso">Piso</label>
-            <input type="text" id="piso" name="piso"/>
-          </p>
-          <p>
-            <label for="departamento">Departamento</label>
-            <input type="text" id="departamento" name="departamento"/>
-          </p>
-        </div>
+        
         <div class="col-2">
           <p>
             <label for="localidad">Localidad</label>
-            <input type="text" id="localidad" name="localidad"/>
+            {{ form.localidad }}
           </p>
           <p>
             <label for="provincia">Provincia</label>
-            <input type="text" id="provincia" name="provincia"/>
+            {{ form.provincia }}
           </p>
         </div>
         <div class="col-2">
           <p>
             <label for="codigo_postal">Código postal</label>
-            <input type="text" id="codigo_postal" name="codigo_postal"/>
+            {{ form.codigo_postal }}
           </p>
         </div>
-        <button>Guardar</button><a href="{% url 'index' %}" class="volver">volver</a>
+        <button>Guardar</button><a href="{% url 'detail' cooperative_id=cooperative.id %}" class="volver">volver</a>
       </form>
     </div>
   </div>

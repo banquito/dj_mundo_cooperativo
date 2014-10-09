@@ -1,19 +1,19 @@
 {% extends "mi_cooperativa/base.html" %}
-
+{% load tags %}
 {% block inter %}
 
 <div class="content">
   <div class="boxes">
-    <div class="box box-nombre active"><a href="{% url 'nombre' cooperative_id=cooperative.id %}">
+    <div class="box box-nombre {% active_step cooperative.nombre cooperative.descripcion %}"><a href="{% url 'nombre' cooperative_id=cooperative.id %}">
         <h5>Nombre</h5>
         <p>Nombre de uso comercial.</p></a></div>
     <div class="box box-miembros"><a href="{% url 'miembros' cooperative_id=cooperative.id %}">
         <h5>+6</h5>
         <p>Para armar una cooperativa, se necestan al menos, 6 socios.</p></a></div>
-    <div class="box box-objetivo"><a href="{% url 'objeto' cooperative_id=cooperative.id %}">
+    <div class="box box-objetivo {% active_step cooperative.objeto %}"><a href="{% url 'objeto' cooperative_id=cooperative.id %}">
         <h5>Objetivo</h5>
         <p>Estar de acuerdo en que tarea van a realizar.</p></a></div>
-    <div class="box box-lugar"><a href="{% url 'lugar' cooperative_id=cooperative.id %}">
+    <div class="box box-lugar {% active_step cooperative.direccion cooperative.localidad cooperative.provincia cooperative.codigo_postal %}"><a href="{% url 'lugar' cooperative_id=cooperative.id %}">
         <h5>Lugar</h5>
         <p>Tener una sede donde funcionar.</p></a></div>
 
