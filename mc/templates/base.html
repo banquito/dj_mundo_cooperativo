@@ -43,7 +43,7 @@
         </aside>
         <ul>
           <li><a href="/accounts/profile/">Perfil</a></li>
-          <li><a href="/mi_cooperativa/">Mi cooperativa</a></li>
+          <li><a href="/mi_cooperativa/">Mis cooperativas</a></li>
           <!--li><a href="#">Imagen institucional</a></li>
           <li><a href="#">Aprender</a></li-->
         </ul>
@@ -63,7 +63,7 @@
         {% if request.user.is_authenticated %}
           <nav>
             <a href="/accounts/profile/" class="{% active request "^/accounts/profile/" %}">Perfil</a>|
-            <a href="/mi_cooperativa/" class="{% active request "^/mi_cooperativa/" %}">Mi cooperativa</a>|
+            <a href="/mi_cooperativa/" class="{% active request "^/mi_cooperativa/" %}">Mis cooperativas</a>|
             <!--a href="#">Imagen institucional</a>|
             <a href="#">Aprender</a-->
           </nav>

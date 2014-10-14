@@ -1,18 +1,28 @@
-{% extends "mi_cooperativa/base.html" %}
+{% extends "base.html" %}
 
-{% block inter %}
-
-<div class="content">
-
-    {% if cooperatives %}
-        <ul>
-        {% for cooperative in cooperatives %}
-            <li><a href="/mi_cooperativa/{{ cooperative.id }}/">{{ cooperative.nombre }}</a></li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No tienes cooperativas activas.</p>
-    {% endif %}
-
-</div>
+{% block content %}
+<section id="profile">
+	<div class="content">
+		<div class="help">
+		    <h2>Mis cooperativas</h2>
+		    <p>Puedes realizar la gestión de varias cooperativas de las que formas parte.</p>
+		</div>
+		<div class="panel">
+		    {% if cooperatives %}
+		        <ul class="cooperatives-list">
+		        {% for cooperative in cooperatives %}
+		            <li>
+		            	<a href="/mi_cooperativa/{{ cooperative.id }}/">
+			            	<h5>{{ cooperative.nombre }}</h5>
+			            	<p>{{ cooperative.descripcion }}</p>
+		            	</a>
+		            </li>
+		        {% endfor %}
+		        </ul>
+		    {% else %}
+		        <p>No tienes cooperativas activas.</p>
+		    {% endif %}
+	    </div>
+	</div>
+</section>
 {% endblock %}
