@@ -1,0 +1,92 @@
+sidenav($color = #5c5c5c, $textColor = #fff) {
+  html {
+    overflow-x:hidden;
+  }
+  .sidemenu {
+    position:fixed;
+    top:0;
+    height:100%;
+    z-index:999;
+    width:244px;
+    background:$color;
+    left:-244px;
+    right:auto;
+    z-index: 10;
+    border-box();
+    inner-shadow(0 -10px 50px #444);
+    transition: left 500ms ease-in-out;
+    nav { overflow: auto; height: 100%; position: relative;
+      ul {
+        vertical_navigation($color);
+      }
+    }
+  }
+  body:target .sidemenu {
+    left:0px;
+  }
+  body #page {
+    position:relative; 
+    left:0;
+    transition (left 500ms ease-in-out);
+  }
+  body:target #page { 
+    position:relative; 
+    left:244px; 
+    width:100%; 
+  }
+  body:target header { 
+    left:244px; 
+    width:100%; 
+  }
+  body header { 
+    left:0; 
+    width:100%; 
+    transition (left 500ms ease-in-out);
+  }
+  [href^="#sidemenu"], 
+  [href^="#sidemenu"]:focus { 
+    outline:none; 
+    background: $colorInstitucionalAlt;
+    color:#fff;
+    size: 48px;
+    position:absolute;
+    top:0;
+    left:244px;
+    line-height:40px;
+    text-align:center;
+    z-index: 1000;
+    font-family: icomoon
+    font-size: 30px
+    line-height: 48px
+    &:before {
+      mixIconSrc($icon-th-menu, $textColor, 30px);
+      margin:0;
+    }
+  }
+  [href*="#sidemenu"]:hover {
+    text-decoration:none;
+    color: #fff;
+    background: lighten($colorInstitucionalAlt, 5%);
+  }
+  [href="#sidemenu"] {
+    display:block; 
+  }
+  body:target [href="#sidemenu"], 
+  [href="#sidemenuclose"] { 
+    display:none; 
+  }
+  body [href="#sidemenu"]
+  body:target [href="#sidemenuclose"] { 
+    display:inline-block; 
+    &:before {
+      content: $icon-th-menu;
+    }
+  }
+}
+.sidemenu
+  display: none
+
++below(4)
+  .sidemenu
+    display: block
+  sidenav()

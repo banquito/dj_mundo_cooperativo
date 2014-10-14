@@ -1,0 +1,34 @@
+include elements/gallery
+include elements/forms
+include elements/slider
+include elements/nav
+
+doctype html
+html(lang="es")
+  
+  include includes/head
+  
+  body.loged-in#sidemenu
+    include includes/sidemenu
+    #page
+      header
+        h1
+          a(href="index.html") Mundo cooperativo
+        .profile Hola
+          |   
+          strong Daniel Pérez 
+          | ,
+          a(href="index.html") Salir 
+
+        nav
+          a(href="index.html") Mundo Cooperativo
+          | |
+          a(href="profile.html").active Mi cooperativa
+          | |
+          a(href="#") Imagen institucional
+          | |
+          a(href="#") Aprender
+      
+      block content
+      
+      include includes/foot

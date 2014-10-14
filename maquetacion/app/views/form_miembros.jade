@@ -1,0 +1,84 @@
+extends _layouts/default
+
+block content
+  section#profile
+    include _layouts/includes/profile_top
+    
+    section#form_miembros
+      .content
+        .help
+          .box.box-miembros.active
+            h5 +6
+            h6 Para armar una cooperativa, se necestan al menos, 6 socios.
+            :markdown
+              Las cooperativas de trabajo necestan 
+              un mínimo de 6 miembros. 
+              Esto es porque es necesario cubrir 
+              los cargos del consejo de administración
+              y el de sindico.
+              En una cooperativa de 6 miembros, 
+              los cargos a distribuir serían:
+              Presidente, secretario, tesorero, 
+              sindico, sindico suplente y socio.
+
+              [Más información](http://www.inaes.com.ar) 
+
+        .panel
+          table
+            thead
+              tr
+                th Socios
+                th Correo
+                th Estado
+                th
+            tbody
+              tr
+                td Ariel Federico Asus
+                td.mail: span daniel@gmail.com
+                td 30%
+                td
+                  a(href="#editar")
+              tr
+                td Ariel Ramirez
+                td.mail: span correo_un_pocoopuedesermuchomaslargoque_esto_largo@gmail.com
+                td 60%
+                td
+                  a(href="#editar")
+              tr
+                td Jorge Ibañez
+                td.mail: span jorge_ibanez@gmail.com
+                td 100%
+                td
+                  a(href="#editar")
+
+          form(action="profile.html")
+
+            h3 Nuevo socio
+
+            p
+              +formInput('text', 'nombre', 'Nombre de usuario')
+            p
+              +formInput('email', 'email', 'Correo electrónico')
+            .col-2
+              p
+                +formInput('password', 'pass', 'Contraseña')
+              p
+                +formInput('password', 'repeat-pass', 'Repetir contraseña')
+            .col-2
+              p
+                +formInput('text', 'nombre', 'Nombre')
+              p
+                +formInput('text', 'apellido', 'Apellido')
+            .col-2
+              p
+                +formInput('text', 'direccion', 'Dirección')
+              p
+                +formInput('text', 'localidad', 'Localidad')
+            .col-2
+              p
+                +formInput('text', 'dni', 'DNI')
+              p
+                +formInput('date', 'fecha_nacimiento', 'Fecha de nacimiento')
+
+            button(type=submit) Agregar socio
+            a(href="profile.html").volver volver

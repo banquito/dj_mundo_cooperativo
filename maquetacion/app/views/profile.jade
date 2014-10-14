@@ -1,0 +1,50 @@
+extends _layouts/default
+
+block content
+  section#profile
+    include _layouts/includes/profile_top
+
+    .content
+      .boxes
+        .box.box-miembros
+          a(href="form_miembros.html")
+            h5 +6
+            p Para armar una cooperativa, se necestan al menos, 6 socios.
+        .box.box-objetivo
+          a(href="form_objetivo.html")
+            h5 Objetivo
+            p Estar de acuerdo en que tarea van a realizar.
+        .box.box-lugar
+          a(href="form_lugar.html")
+            h5 Lugar
+            p Tener una sede donde funcionar.
+        .box.box-nombre.active
+          a(href="form_nombre.html")
+            h5 Nombre
+            p Nombre de uso comercial.
+        .box.box-formacion
+          a(href="form_formacion.html")
+            h5 Formación
+            p Curso de cooperativismo.
+        .box.box-capital
+          a(href="form_capital.html")
+            h5 Capital social
+            p Capital suscripto por socio.
+
+      .boxes-inaes
+        .box.box-convocatoria
+          a(href="form_convocatoria.html")
+            h5 Convocatoria  a Asamblea
+            p Genera la documantación necesaria para presentar ante el Inaes
+        .box.box-asamblea
+          a(href="form_asamblea.html")
+            h5 Asamblea constitutiva
+            p Se crea el estatuto de la cooperativa
+        .box.box-acta-consejo
+          a(href="form_acta_concejo.html")
+            h5 Primer acta del consejo
+            p Se repartin los cargos del consejo de administración
+        .box.box-tramite
+          a(href="form_tramite.html")
+            h5 Estado del tramite ante el Inaes
+            p Información sobre la situación legal de la cooperativa

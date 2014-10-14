@@ -1,0 +1,66 @@
+body
+  padding-top: 48px
+
+header
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 5
+  width: 100%
+  background: $colorInstitucional
+  height: 48px
+  a:hover
+    color: #f1f1f1;
+  h1
+    float: left
+    line-height: 48px
+    font-size: 24px
+    margin: 0 20px 0 20px
+    +below(4)
+      margin-left: 60px
+    a
+      color: #fff
+
+  .profile
+    float: right
+    color: #fff
+    font-size: 14px
+    line-height: 48px
+    margin-right: 10px
+    a
+      color: #fff
+      margin: 0 10px
+    +below(4)
+      display: none
+  nav
+    font-size: 14px
+    line-height: 35px
+    margin-right: 10px
+    padding-top: 10px
+    color: #fff
+    a
+      color: #fff
+      margin: 0 10px
+      display: inline-block
+      line-height: 36px
+      &.active
+        border-bottom: 2px solid #fff
+
+    +below(4)
+      display: none
+
+.not-login
+  header
+    background: $colorInstitucionalAlt
+.loged-in
+  header
+    h1
+      a
+        padding-left: 40px
+        background: url(../svg/logo.svg) no-repeat 0 8px
+        background-size: 100px auto
+        display: block
+        white-space: nowrap;
+        +below(4)
+          overflow: hidden
+          width: 0

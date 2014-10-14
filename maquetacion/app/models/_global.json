@@ -1,0 +1,22 @@
+{ 
+  "nav": [ 
+    {"link":"/", "name":"Home"},
+    {"link":"/docs/", "name":"Documentation"},
+    {"link":"/descargar.html", "name":"Download"},
+    {"link":"/es/#lang", "name":"Español"},
+    {"link":"/examples/", "name":"Examples"}
+  ],
+  "user": {
+    "name": "User Name",
+    "provider": "github",
+    "image": "/assets/upload/user.png"
+  },
+  "page": {
+    "title": "Mundo cooperativo"
+  },
+  "socios": [
+    {"label":"Ariel Federico Asus", "value":"Ariel Federico Asus"}, 
+    {"label":"Ariel Ramirez", "value":"Ariel Ramirez"}, 
+    {"label":"Jorge Ibañez", "value":"Jorge Ibañez"}
+  ]
+}
