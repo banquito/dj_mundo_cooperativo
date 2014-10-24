@@ -1,5 +1,6 @@
 from django.forms import ModelForm
-from .models import Cooperative
+from .models import Cooperative, Partner
+
 class CooperativeNombreForm(ModelForm):
     class Meta:
         model = Cooperative
@@ -9,7 +10,22 @@ class CooperativeObjetoForm(ModelForm):
     class Meta:
         model = Cooperative
         fields = ['objeto']
+
 class CooperativeLugarForm(ModelForm):
     class Meta:
         model = Cooperative
         fields = ['direccion', 'localidad', 'provincia', 'codigo_postal']
+
+class CooperativeMiembroForm(ModelForm):
+    class Meta:
+        model = Partner
+        fields = [
+        	'cooperative', 
+        	'nombre', 
+        	'apellido', 
+        	'correo_electronico', 
+        	'direccion', 
+        	'localidad',
+        	'dni',
+        	'fecha_de_nacimiento'
+        ]

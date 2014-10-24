@@ -24,29 +24,17 @@ sindico, sindico suplente y socio.</p>
           <tr>
             <th>Socios</th>
             <th>Correo</th>
-            <th>Estado</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
+          {% for partner in partners %}
           <tr>
-            <td>Ariel Federico Asus</td>
-            <td class="mail"><span>daniel@gmail.com</span></td>
-            <td>30%</td>
-            <td><a href="#editar"></a></td>
+            <td>{{ partner.apellido }}, {{ partner.nombre }}</td>
+            <td class="mail"><span>{{ partner.correo_electronico }}</span></td>
+            <td><a href="{{ partner.pk }}" class="editar"></a></td>
           </tr>
-          <tr>
-            <td>Ariel Ramirez</td>
-            <td class="mail"><span>correo_un_pocoopuedesermuchomaslargoque_esto_largo@gmail.com</span></td>
-            <td>60%</td>
-            <td><a href="#editar"></a></td>
-          </tr>
-          <tr>
-            <td>Jorge Ibañez</td>
-            <td class="mail"><span>jorge_ibanez@gmail.com</span></td>
-            <td>100%</td>
-            <td><a href="#editar"></a></td>
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
       <form action="{% url 'index' %}">

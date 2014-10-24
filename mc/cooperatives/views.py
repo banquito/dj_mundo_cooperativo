@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 
-from .models import Cooperative
+from .models import Cooperative, Partner
 from .forms import CooperativeNombreForm, CooperativeObjetoForm, CooperativeLugarForm
 
 def index(request):
@@ -25,7 +25,14 @@ def nombre(request, cooperative_id):
 
 def miembros(request, cooperative_id):
     cooperative = get_object_or_404(Cooperative, pk=cooperative_id)
-    return render(request, 'mi_cooperativa/miembros.html', {'cooperative':cooperative})
+    partners = Partner.objects.all()
+
+    if request.POST:
+        f = CooperativeMiembroForm(request.POST, instance=cooperative)
+        f.save()
+        return HttpResponseRedirect(reverse('detail', args=(cooperative_id,)))
+
+    return render(request, 'mi_cooperativa/miembros.html', {'cooperative':cooperative, 'partners':partners})
 
 def objeto(request, cooperative_id):
     cooperative = get_object_or_404(Cooperative, pk=cooperative_id)
