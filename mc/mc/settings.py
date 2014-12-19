@@ -77,15 +77,10 @@ ROOT_URLCONF = 'mc.urls'
 WSGI_APPLICATION = 'mc.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+import dj_database_url
+DB_PATH = PROJECT_DIR.child("db").child('mc.sqlite')
+DATABASES = {'default':  dj_database_url.config(default='postgres://mc:mc1234@localhost:5432/mc')}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
