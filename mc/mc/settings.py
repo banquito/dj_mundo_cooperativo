@@ -1,19 +1,10 @@
-"""
-Django settings for mc project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
-"""
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# -*- coding: utf-8 -*-
 import os
+from unipath import Path
+
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+PROJECT_DIR = Path(__file__).ancestor(2)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -78,9 +69,10 @@ WSGI_APPLICATION = 'mc.wsgi.application'
 
 
 import dj_database_url
-DB_PATH = PROJECT_DIR.child("db").child('mc.sqlite')
-DATABASES = {'default':  dj_database_url.config(default='postgres://mc:mc1234@localhost:5432/mc')}
-
+DATABASES = {
+    #'default': dj_database_url.config(default='postgres://mc:mc1234@localhost:5432/mc'),
+    'default': dj_database_url.config(default='sqlite:////'+PROJECT_DIR.child('db.sqlite3')),
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -102,11 +94,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    PROJECT_DIR.child("static"),
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, "templates"),   
+    PROJECT_DIR.child("templates"),   
 )
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
