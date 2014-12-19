@@ -3,10 +3,15 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 
 from .models import Cooperative, Partner
-from .forms import CooperativeNombreForm, CooperativeObjetoForm, CooperativeLugarForm
+from .forms import CooperativeMiembroForm, CooperativeNombreForm, CooperativeObjetoForm, CooperativeLugarForm
 
 def index(request):
-    cooperatives = Cooperative.objects.all()
+    partners = Partner.objects.filter(correo_electronico='tiko2015@gmail.com')
+    cooperatives = []
+
+    for partner in partners:
+        cooperatives.append(partner.cooperative)
+
     return render(request, 'mi_cooperativa/index.html', {'cooperatives':cooperatives})
 
 def detail(request, cooperative_id):
@@ -18,21 +23,25 @@ def nombre(request, cooperative_id):
 
     if request.POST:
         f = CooperativeNombreForm(request.POST, instance=cooperative)
-        f.save()
-        return HttpResponseRedirect(reverse('detail', args=(cooperative_id,)))
+        if form.is_valid():
+            f.save()
+            return HttpResponseRedirect(reverse('detail', args=(cooperative_id,)))
 
     return render(request, 'mi_cooperativa/nombre.html', {'cooperative':cooperative})
 
 def miembros(request, cooperative_id):
     cooperative = get_object_or_404(Cooperative, pk=cooperative_id)
-    partners = Partner.objects.all()
+    partners = cooperative.partner_set.all()
 
     if request.POST:
-        f = CooperativeMiembroForm(request.POST, instance=cooperative)
-        f.save()
-        return HttpResponseRedirect(reverse('detail', args=(cooperative_id,)))
+        form = CooperativeMiembroForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('miembros', args=(cooperative_id,)))
+    else:
+        form = CooperativeMiembroForm()
 
-    return render(request, 'mi_cooperativa/miembros.html', {'cooperative':cooperative, 'partners':partners})
+    return render(request, 'mi_cooperativa/miembros.html', {'cooperative':cooperative, 'partners':partners, 'form':form})
 
 def objeto(request, cooperative_id):
     cooperative = get_object_or_404(Cooperative, pk=cooperative_id)
@@ -57,6 +66,8 @@ def lugar(request, cooperative_id):
 
 def formacion(request, cooperative_id):
     cooperative = get_object_or_404(Cooperative, pk=cooperative_id)
+    partners = cooperative.partner_set.all()
+
     return render(request, 'mi_cooperativa/formacion.html', {'cooperative':cooperative})
 
 def convocatoria(request, cooperative_id):

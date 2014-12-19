@@ -7,7 +7,7 @@
     <div class="box box-nombre {% active_step cooperative.nombre cooperative.descripcion %}"><a href="{% url 'nombre' cooperative_id=cooperative.id %}">
         <h5>Nombre</h5>
         <p>Nombre de uso comercial.</p></a></div>
-    <div class="box box-miembros"><a href="{% url 'miembros' cooperative_id=cooperative.id %}">
+    <div class="box box-miembros {% if cooperative.partner_set.all|length > 5 %}active{% endif %}"><a href="{% url 'miembros' cooperative_id=cooperative.id %}">
         <h5>+6</h5>
         <p>Para armar una cooperativa, se necestan al menos, 6 socios.</p></a></div>
     <div class="box box-objetivo {% active_step cooperative.objeto %}"><a href="{% url 'objeto' cooperative_id=cooperative.id %}">

@@ -37,48 +37,52 @@ sindico, sindico suplente y socio.</p>
           {% endfor %}
         </tbody>
       </table>
-      <form action="{% url 'index' %}">
+      <form action="{% url 'miembros' cooperative_id=cooperative.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="cooperative" value="{{ cooperative.id }}">
+{% for field in form %}
+    <div class="fieldWrapper">
+        
+        {{ field.label_tag }} {{ field.errors }}
+    </div>
+{% endfor %}
+
         <h3>Nuevo socio</h3>
         <p>
-          <label for="nombre">Nombre de usuario</label>
-          <input type="text" id="nombre" name="nombre"/>
-        </p>
-        <p>
           <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email"/>
+          {{ form.correo_electronico }}
         </p>
-
         <div class="col-2">
           <p>
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre"/>
+            {{ form.nombre }}
           </p>
           <p>
             <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="apellido"/>
+            {{ form.apellido }}
           </p>
         </div>
         <div class="col-2">
           <p>
             <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direccion"/>
+            {{ form.direccion }}
           </p>
           <p>
             <label for="localidad">Localidad</label>
-            <input type="text" id="localidad" name="localidad"/>
+            {{ form.localidad }}
           </p>
         </div>
         <div class="col-2">
           <p>
             <label for="dni">DNI</label>
-            <input type="text" id="dni" name="dni"/>
+            {{ form.dni }}
           </p>
           <p>
             <label for="fecha_nacimiento">Fecha de nacimiento</label>
-            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"/>
+            {{ form.fecha_de_nacimiento }}
           </p>
         </div>
-        <button>Agregar socio</button><a href="{% url 'index' %}" class="volver">volver</a>
+        <button>Agregar socio</button><a href="{% url 'detail' cooperative_id=cooperative.id %}" class="volver">volver</a>
       </form>
     </div>
   </div>

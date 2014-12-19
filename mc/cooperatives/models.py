@@ -48,7 +48,7 @@ class Partner(models.Model):
     localidad = models.CharField(max_length=200)
     dni = models.IntegerField(default=0)
     fecha_de_nacimiento = models.DateTimeField('date')
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField('date published', auto_now_add=True)
 
     def __unicode__(self):
         return self.nombre
@@ -63,7 +63,7 @@ class Course(models.Model):
 class Assembly(models.Model):
     cooperative = models.ForeignKey(Cooperative)
     fecha_de_convocatoria = models.DateTimeField('date')
-    notificacion = models.BooleanField(True)
+    notificacion = models.BooleanField(None)
     direccion = models.CharField(max_length=200)
     localidad = models.CharField(max_length=200)
     codigo_postal = models.CharField(max_length=200)
