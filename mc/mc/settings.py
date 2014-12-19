@@ -87,14 +87,19 @@ USE_L10N = True
 
 USE_TZ = True
 
+MEDIA_ROOT = PROJECT_DIR.child("media")
+
+MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+STATIC_ROOT = PROJECT_DIR.child("static")
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    PROJECT_DIR.child("static"),
+    PROJECT_DIR.child("assets"),
 )
 
 TEMPLATE_DIRS = (
