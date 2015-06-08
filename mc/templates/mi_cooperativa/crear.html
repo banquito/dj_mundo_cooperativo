@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="profile">
+  <div class="content">
+    <div class="help">
+        <h2>Mis cooperativas</h2>
+        <p>Puedes realizar la gestión de varias cooperativas de las que formas parte.</p>
+    </div>
+    <div class="panel">
+      <form action="{% url 'crear' %}" method="post">
+        {% csrf_token %}
+        <h3>Nombre comercial</h3>
+        <p>"Cooperativa de trabajo"
+          <input type="text" id="nombre" name="nombre" value="">"limitada".
+        </p>
+        <p>
+          <label for="descripcion">Descripción corta</label>
+          <textarea id="descripcion" name="descripcion"></textarea>
+        </p>
+        <button>Guardar</button><a href="{% url 'index' %}" class="volver">volver</a>
+      </form>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

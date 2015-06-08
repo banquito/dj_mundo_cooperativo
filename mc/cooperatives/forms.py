@@ -1,9 +1,6 @@
 from django.forms import ModelForm, TextInput
 from .models import Cooperative, Partner
 
-from django import forms
-from django.forms.extras.widgets import SelectDateWidget
-
 class CooperativeNombreForm(ModelForm):
     class Meta:
         model = Cooperative

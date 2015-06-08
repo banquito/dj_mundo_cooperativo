@@ -23,11 +23,20 @@ def nombre(request, cooperative_id):
 
     if request.POST:
         f = CooperativeNombreForm(request.POST, instance=cooperative)
-        if form.is_valid():
+        if f.is_valid():
             f.save()
             return HttpResponseRedirect(reverse('detail', args=(cooperative_id,)))
 
     return render(request, 'mi_cooperativa/nombre.html', {'cooperative':cooperative})
+
+def crear(request):
+    if request.POST:
+        f = CooperativeNombreForm(request.POST)
+        if f.is_valid():
+            f.save()
+            return HttpResponseRedirect(reverse('index'))
+
+    return render(request, 'mi_cooperativa/crear.html')
 
 def miembros(request, cooperative_id):
     cooperative = get_object_or_404(Cooperative, pk=cooperative_id)

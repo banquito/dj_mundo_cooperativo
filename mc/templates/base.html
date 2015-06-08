@@ -57,7 +57,7 @@
             {% if request.user.is_authenticated %}
               Hola <strong><a href="/accounts/profile">{{ request.user }}</a></strong>, <a href="/accounts/logout">Salir </a>
             {% else %}
-              <a href="/accounts/login">Iniciá sesión</a>|<a href="/accounts/signup">Registráte</a>
+              <a href="/accounts/login">Iniciá sesión</a>|<a href="/accounts/signup">Registrate</a>
             {% endif %}
         </div>
         {% if request.user.is_authenticated %}

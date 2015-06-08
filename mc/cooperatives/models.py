@@ -63,7 +63,7 @@ class Course(models.Model):
 class Assembly(models.Model):
     cooperative = models.ForeignKey(Cooperative)
     fecha_de_convocatoria = models.DateTimeField('date')
-    notificacion = models.BooleanField(None)
+    notificacion = models.NullBooleanField()
     direccion = models.CharField(max_length=200)
     localidad = models.CharField(max_length=200)
     codigo_postal = models.CharField(max_length=200)

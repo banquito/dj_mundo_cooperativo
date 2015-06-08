@@ -5,6 +5,7 @@ from cooperatives import views
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^(?P<cooperative_id>\d+)/$', views.detail, name='detail'),
+    url(r'^crear', views.crear, name='crear'),
     url(r'^(?P<cooperative_id>\d+)/nombre', views.nombre, name='nombre'),
     url(r'^(?P<cooperative_id>\d+)/miembros', views.miembros, name='miembros'),
     url(r'^(?P<cooperative_id>\d+)/objeto', views.objeto, name='objeto'),
